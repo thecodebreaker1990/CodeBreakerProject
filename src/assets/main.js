@@ -54,13 +54,11 @@ function setMessage(message){
 
 /*----- Function to validate user input -----*/
 function validateInput(userInput){
-    if(userInput.length == 4){
-      return true;
-    }
-    else{
+    if(userInput.length !== 4){
       setMessage("Guesses must be exactly 4 characters long.");
       return false;
     }
+    return true;
 }
 
 /*----- Function to set result -----*/
@@ -89,13 +87,14 @@ function getResults(userInput){
 
 /*----- Function to show answer to user -----*/
 function showAnswer(status){
-  document.getElementById("code").innerHTML = answer.value;
+
   if(status === true){
     document.getElementById("code").classList.add("success");
   }
   else{
     document.getElementById("code").classList.add("failure");
   }
+  document.getElementById("code").innerHTML = answer.value;
 }
 
 function showReplay(){
